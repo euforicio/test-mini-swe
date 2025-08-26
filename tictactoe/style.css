@@ -1,0 +1,102 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --primary: #60a5fa;
+  --accent: #34d399;
+  --danger: #f87171;
+  --cell: #1f2937;
+  --cell-hover: #374151;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 600px at 20% 10%, #111827, var(--bg));
+  color: var(--text);
+}
+
+.container {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 {
+  text-align: center;
+  margin: 16px 0 8px;
+  letter-spacing: 0.02em;
+}
+
+#status {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 16px;
+  min-height: 1.5em;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: transparent;
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  background: var(--cell);
+  border: 2px solid #111827;
+  border-radius: 12px;
+  color: var(--text);
+  font-size: clamp(2.2rem, 8vw, 3.2rem);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 120ms ease, background 140ms ease, box-shadow 140ms ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.cell:hover {
+  background: var(--cell-hover);
+  transform: translateY(-1px);
+}
+
+.cell:disabled {
+  cursor: default;
+  opacity: 0.9;
+}
+
+.cell.winner {
+  outline: 3px solid var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.reset {
+  background: var(--primary);
+  color: #0b1020;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 120ms ease, transform 120ms ease;
+}
+
+.reset:hover { filter: brightness(1.05); transform: translateY(-1px); }
+.reset:active { transform: translateY(0); }
+
+@media (min-width: 640px) {
+  .container { padding-top: 40px; }
+}
