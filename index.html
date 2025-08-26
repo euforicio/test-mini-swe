@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <noscript>
+    <div class="status warning">JavaScript is disabled. Form validation and success message will not work.</div>
+  </noscript>
+
+  <main class="container">
+    <section class="card">
+      <h1>Contact Us</h1>
+
+      <div id="status" class="status success" role="alert" aria-live="polite" hidden></div>
+
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your full name" required aria-describedby="nameError" />
+          <small id="nameError" class="error-message" aria-live="polite"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required aria-describedby="emailError" />
+          <small id="emailError" class="error-message" aria-live="polite"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="How can we help?" required aria-describedby="messageError"></textarea>
+          <small id="messageError" class="error-message" aria-live="polite"></small>
+        </div>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
