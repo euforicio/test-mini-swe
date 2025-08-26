@@ -1,0 +1,2 @@
+Tiny test artifact for issue 202508262344
+Timestamp: 2025-08-26T23:47:26Z
