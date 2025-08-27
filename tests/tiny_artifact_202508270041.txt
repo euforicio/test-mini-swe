@@ -1,0 +1,4 @@
+Tiny Test Artifact
+Issue: 202508270041
+Purpose: Provide a minimal test artifact for CI or smoke checks.
+Timestamp: 2025-08-27T00:42:30Z
