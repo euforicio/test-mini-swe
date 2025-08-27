@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Simple client-side Tic-Tac-Toe game for two local players (X and O). No build, no dependencies." />
+  <title>Tic‑Tac‑Toe</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Tic‑Tac‑Toe</h1>
+
+    <p id="status" class="status" role="status" aria-live="polite">Turn: X</p>
+
+    <div id="board" class="board" role="grid" aria-label="Tic-Tac-Toe board (3 by 3)">
+      <div role="row" class="row">
+        <button class="cell" data-index="0" aria-label="Empty, row 1 column 1. Press Enter or Space to place X"></button>
+        <button class="cell" data-index="1" aria-label="Empty, row 1 column 2. Press Enter or Space to place X"></button>
+        <button class="cell" data-index="2" aria-label="Empty, row 1 column 3. Press Enter or Space to place X"></button>
+      </div>
+      <div role="row" class="row">
+        <button class="cell" data-index="3" aria-label="Empty, row 2 column 1. Press Enter or Space to place X"></button>
+        <button class="cell" data-index="4" aria-label="Empty, row 2 column 2. Press Enter or Space to place X"></button>
+        <button class="cell" data-index="5" aria-label="Empty, row 2 column 3. Press Enter or Space to place X"></button>
+      </div>
+      <div role="row" class="row">
+        <button class="cell" data-index="6" aria-label="Empty, row 3 column 1. Press Enter or Space to place X"></button>
+        <button class="cell" data-index="7" aria-label="Empty, row 3 column 2. Press Enter or Space to place X"></button>
+        <button class="cell" data-index="8" aria-label="Empty, row 3 column 3. Press Enter or Space to place X"></button>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="restart" type="button" class="restart" aria-label="Restart game (R)">Restart</button>
+    </div>
+
+    <section class="help" aria-labelledby="kb-help-heading">
+      <h2 id="kb-help-heading" class="visually-hidden">Keyboard help</h2>
+      <p class="hint">Keyboard: Arrow keys move focus, Enter/Space places a mark, R restarts.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
