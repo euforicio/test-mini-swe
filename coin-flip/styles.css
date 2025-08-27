@@ -1,0 +1,91 @@
+:root {
+  --bg: #0f172a; /* slate-900 */
+  --panel: #111827; /* gray-900 */
+  --text: #e5e7eb; /* gray-200 */
+  --muted: #9ca3af; /* gray-400 */
+  --accent: #22c55e; /* green-500 */
+  --accent-2: #60a5fa; /* blue-400 */
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 50% -200px, #1f2937 0%, var(--bg) 40%);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+}
+
+.app {
+  width: min(560px, 92vw);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+h1 { margin-top: 0; font-weight: 700; letter-spacing: 0.3px; }
+
+.coin {
+  width: 160px;
+  height: 160px;
+  margin: 12px auto 8px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 56px;
+  font-weight: 700;
+  color: #0b1020;
+  background: radial-gradient(circle at 35% 30%, #fff 0%, #f8fafc 45%, #cbd5e1 100%);
+  border: 6px solid #94a3b8; /* slate-400 */
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.2), 0 10px 30px rgba(0,0,0,0.35);
+  transform-style: preserve-3d;
+}
+
+.coin.flipping { animation: flip 700ms ease-in-out; }
+
+@keyframes flip {
+  0% { transform: rotateY(0); }
+  30% { transform: rotateY(180deg) scale(1.04); }
+  60% { transform: rotateY(360deg); }
+  100% { transform: rotateY(540deg); }
+}
+
+.result { color: var(--text); min-height: 1.5em; }
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  color: var(--muted);
+  margin: 8px 0 18px;
+}
+
+.btn {
+  background: linear-gradient(180deg, var(--accent), #16a34a);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  box-shadow: 0 6px 16px rgba(34,197,94,0.35);
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(34,197,94,0.45); }
+.btn:active { transform: translateY(0); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.hint { color: var(--muted); margin-top: 10px; font-size: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .coin.flipping { animation: none; }
+  .btn { transition: none; }
+}
