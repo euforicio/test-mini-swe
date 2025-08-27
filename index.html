@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>To‑Do App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#todo-input">Skip to new task input</a>
+  <header class="app-header">
+    <h1>To‑Do</h1>
+    <form id="new-task-form" class="new-task-form" autocomplete="off">
+      <label for="todo-input" class="visually-hidden">New task title</label>
+      <input id="todo-input" name="title" type="text" placeholder="What needs to be done?" aria-label="New task title" autofocus>
+      <button type="submit" aria-label="Add task">Add</button>
+    </form>
+
+    <div class="controls">
+      <nav class="filters" aria-label="Filters">
+        <div role="group" aria-label="Filter tasks">
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All <span class="count" id="count-all" aria-hidden="true"></span></button>
+          <button type="button" class="filter-btn" data-filter="active" aria-pressed="false">Active <span class="count" id="count-active" aria-hidden="true"></span></button>
+          <button type="button" class="filter-btn" data-filter="completed" aria-pressed="false">Completed <span class="count" id="count-completed" aria-hidden="true"></span></button>
+        </div>
+      </nav>
+
+      <div class="search">
+        <label for="search-box">Search</label>
+        <input id="search-box" type="search" placeholder="Search tasks" aria-label="Search tasks">
+      </div>
+    </div>
+
+    <div id="live-region" class="live-region" aria-live="polite" aria-atomic="true"></div>
+  </header>
+
+  <main>
+    <ul id="todo-list" class="todo-list" aria-label="Task list"></ul>
+  </main>
+
+  <footer class="app-footer">
+    <button id="clear-completed" type="button">Clear completed</button>
+  </footer>
+
+  <script defer src="./src/storage.js"></script>
+  <script defer src="./src/state.js"></script>
+  <script defer src="./src/dom.js"></script>
+  <script defer src="./src/app.js"></script>
+</body>
+</html>
