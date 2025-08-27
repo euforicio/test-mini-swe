@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Super Simple Todo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="container">
+    <h1>Super Simple Todo</h1>
+    <form id="todo-form" autocomplete="off">
+      <input id="new-todo" type="text" placeholder="What needs to be done?" aria-label="Add a new todo">
+      <button type="submit" aria-label="Add todo">Add</button>
+    </form>
+  </header>
+
+  <main class="container">
+    <ul id="todo-list" aria-label="Todo list"></ul>
+  </main>
+
+  <footer class="container footer">
+    <div class="footer-left">
+      <span id="items-left" aria-live="polite">0 items left</span>
+    </div>
+    <div class="filters" role="group" aria-label="Filter todos">
+      <button type="button" data-filter="all" class="filter selected" aria-pressed="true">All</button>
+      <button type="button" data-filter="active" class="filter" aria-pressed="false">Active</button>
+      <button type="button" data-filter="completed" class="filter" aria-pressed="false">Completed</button>
+    </div>
+    <div class="footer-right">
+      <button type="button" id="clear-completed" disabled>Clear completed</button>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
