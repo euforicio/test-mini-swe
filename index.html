@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Todo Demo (Client-side, localStorage)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Todo Demo</h1>
+  </header>
+
+  <main class="app-main" id="app" aria-live="off">
+    <form id="todo-form" class="todo-form" autocomplete="off">
+      <label for="new-todo" class="visually-hidden">Add a new todo</label>
+      <input id="new-todo" name="new-todo" type="text" placeholder="What needs to be done?" aria-label="New todo" required>
+      <button type="submit" id="add-btn" aria-label="Add todo">Add</button>
+    </form>
+
+    <div class="filters" role="group" aria-label="Filter todos" id="filters">
+      <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="filter-btn" data-filter="active" aria-pressed="false">Active</button>
+      <button type="button" class="filter-btn" data-filter="completed" aria-pressed="false">Completed</button>
+    </div>
+
+    <ul id="todo-list" class="todo-list" aria-label="Todo list"></ul>
+
+    <footer class="app-footer">
+      <span id="items-left" aria-live="polite" aria-atomic="true">0 items left</span>
+      <button type="button" id="clear-completed">Clear completed</button>
+    </footer>
+  </main>
+
+  <script src="./utils.js"></script>
+  <script src="./storage.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
