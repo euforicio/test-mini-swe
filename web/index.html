@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src self; script-src self; style-src self unsafe-inline; img-src self data:; font-src self; connect-src self;" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Simple Todo</title>
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body class="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+    <a href="#app" class="absolute left-2 top-2 -translate-y-20 focus:translate-y-0 bg-indigo-600 text-white px-3 py-1 rounded">Skip to content</a>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
