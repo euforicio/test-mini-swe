@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>About — Euforicio Flowers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Euforicio Flowers is a local-first flower shop committed to fresh, sustainable blooms."/>
+  <meta property="og:title" content="About — Euforicio Flowers"/>
+  <meta property="og:description" content="Our story and values: Fresh, Local, Sustainable."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&w=1600&q=60"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="styles/styles.css"/>
+  <script src="scripts/main.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <div class="container nav" role="navigation" aria-label="Primary">
+    <a class="brand" href="index.html" aria-label="Euforicio Flowers home">
+      <img alt="" src="favicon.svg" />
+      <span class="brand-title">Euforicio Flowers</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a class="active" aria-current="page" href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="container nav-drawer" role="navigation" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a class="active" aria-current="page" href="about.html">About</a>
+    <a href="products.html">Products</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <h1>Our Story</h1>
+    <p class="muted">Euforicio Flowers began with a simple idea: make it easy to share joy through beautiful, fresh blooms — every day. We partner with local growers and craft every arrangement with care.</p>
+
+    <h2>Our Values</h2>
+    <div class="values">
+      <div class="value">
+        <div class="emoji" aria-hidden="true">🌿</div>
+        <h3>Fresh</h3>
+        <p>We source seasonal flowers picked at peak freshness for longer-lasting arrangements.</p>
+      </div>
+      <div class="value">
+        <div class="emoji" aria-hidden="true">🏡</div>
+        <h3>Local</h3>
+        <p>We support nearby farms and florists to reduce transit time and support our community.</p>
+      </div>
+      <div class="value">
+        <div class="emoji" aria-hidden="true">🌎</div>
+        <h3>Sustainable</h3>
+        <p>Eco-conscious packaging and mindful sourcing help us reduce our footprint.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <small>&copy; <span id="year"></span> Euforicio Flowers</small>
+    <div class="social">
+      <a href="https://instagram.com/" aria-label="Instagram">Instagram</a>
+      <a href="https://facebook.com/" aria-label="Facebook">Facebook</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>

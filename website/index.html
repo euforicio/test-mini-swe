@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Euforicio Flowers — Fresh blooms, delivered with love</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Euforicio Flowers: Fresh blooms, delivered with love. Beautiful bouquets and arrangements delivered with care."/>
+  <meta property="og:title" content="Euforicio Flowers"/>
+  <meta property="og:description" content="Fresh blooms, delivered with love"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&w=1600&q=60"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&w=1600&q=60"/>
+  <link rel="stylesheet" href="styles/styles.css"/>
+  <script src="scripts/main.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <div class="container nav" role="navigation" aria-label="Primary">
+    <a class="brand" href="index.html" aria-label="Euforicio Flowers home">
+      <img alt="" src="favicon.svg" />
+      <span class="brand-title">Euforicio Flowers</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="active" aria-current="page" href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="container nav-drawer" role="navigation" aria-label="Mobile">
+    <a class="active" aria-current="page" href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="products.html">Products</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>Fresh blooms, delivered with love</h1>
+          <p>From everyday joy to life’s biggest moments, our flowers arrive fresh and beautiful — curated by local florists and delivered with love.</p>
+          <a class="cta" href="products.html">Shop Now</a>
+        </div>
+        <div class="hero-img" role="img" aria-label="Assorted fresh flower bouquet" style="background-image:url('https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&w=1600&q=60')"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Featured Bouquets</h2>
+      <p class="muted">A few of our customer favorites</p>
+      <div class="cards">
+        <article class="card">
+          <div class="card-media"><img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&w=800&q=60" alt="Spring Bouquet with pastel flowers"></div>
+          <div class="card-body">
+            <h3>Spring Bouquet</h3>
+            <p>Soft pastels and fresh greenery — a breath of spring.</p>
+            <div class="price">$29</div>
+            <a class="btn" href="products.html" aria-label="View Spring Bouquet in products">View in Products</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&w=800&q=60" alt="Red rose bouquet"></div>
+          <div class="card-body">
+            <h3>Rose Romance</h3>
+            <p>Classic red roses to make hearts flutter.</p>
+            <div class="price">$39</div>
+            <a class="btn" href="products.html" aria-label="View Rose Romance in products">View in Products</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="https://images.unsplash.com/photo-1495433324511-bf8e92934d90?auto=format&w=800&q=60" alt="Bright yellow and orange bouquet"></div>
+          <div class="card-body">
+            <h3>Sunshine Mix</h3>
+            <p>Bright blooms to light up any room.</p>
+            <div class="price">$49</div>
+            <a class="btn" href="products.html" aria-label="View Sunshine Mix in products">View in Products</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>What Customers Say</h2>
+      <div class="strip">
+        <p class="bubble">“Stunning flowers and wonderful service!” — Ava</p>
+        <p class="bubble">“Same-day delivery was a lifesaver.” — Liam</p>
+        <p class="bubble">“The bouquet looked even better than the photos.” — Zoe</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <small>&copy; <span id="year"></span> Euforicio Flowers</small>
+    <div class="social">
+      <a href="https://instagram.com/" aria-label="Instagram">Instagram</a>
+      <a href="https://facebook.com/" aria-label="Facebook">Facebook</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>
