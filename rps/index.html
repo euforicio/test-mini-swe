@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rock–Paper–Scissors</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container" role="main">
+    <h1>Rock–Paper–Scissors</h1>
+    <p class="instructions">
+      First to 5 wins. Use the buttons or your keyboard: R (Rock), P (Paper), S (Scissors).
+    </p>
+
+    <section class="controls" aria-label="Game controls">
+      <button id="rockBtn" class="btn choice" data-choice="rock" aria-label="Choose Rock" title="Rock (R)">Rock</button>
+      <button id="paperBtn" class="btn choice" data-choice="paper" aria-label="Choose Paper" title="Paper (P)">Paper</button>
+      <button id="scissorsBtn" class="btn choice" data-choice="scissors" aria-label="Choose Scissors" title="Scissors (S)">Scissors</button>
+      <button id="resetBtn" class="btn reset" aria-label="Reset game">Reset</button>
+    </section>
+
+    <section class="status" aria-label="Game status">
+      <div id="selections" class="selections" role="status" aria-live="polite" aria-atomic="true">
+        You: — | Computer: —
+      </div>
+      <div id="result" class="result" role="status" aria-live="polite">
+        Make your move!
+      </div>
+      <div id="scoreboard" class="scoreboard" role="status" aria-live="polite" aria-atomic="true">
+        Player 0 — 0 Computer
+      </div>
+    </section>
+
+    <noscript>
+      <p class="noscript">JavaScript is required to play this game.</p>
+    </noscript>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
