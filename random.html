@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Random Integer 1–10</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container" role="main">
+      <h1>Random Integer 1–10</h1>
+      <p id="description">Click the button to generate a random integer between 1 and 10.</p>
+      <div class="number" aria-live="polite" aria-atomic="true" role="status">
+        <span id="random-number" aria-label="Current random number">–</span>
+      </div>
+      <button id="generate-btn" type="button" class="btn" aria-label="Generate a new random integer between 1 and 10">Generate</button>
+      <noscript>
+        <p class="noscript">JavaScript is required to generate numbers.</p>
+      </noscript>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
