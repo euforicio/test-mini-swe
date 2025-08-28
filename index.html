@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coinflip</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <h1>Coinflip</h1>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <section class="coin-area" aria-labelledby="coin-section-title">
+      <h2 id="coin-section-title" class="visually-hidden">Coin</h2>
+
+      <div class="coin-wrapper">
+        <div id="coin" class="coin" role="img" aria-live="polite" aria-label="Coin showing Heads" data-face="heads">
+          <div class="face front" aria-hidden="true">Heads</div>
+          <div class="face back" aria-hidden="true">Tails</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="flipBtn" type="button" class="btn primary" aria-label="Flip the coin (Space or Enter)" aria-controls="coin result historyList">
+          Flip
+        </button>
+        <button id="resetBtn" type="button" class="btn" aria-label="Reset counters and history">
+          Reset
+        </button>
+      </div>
+
+      <p id="result" class="result" role="status" aria-live="polite" aria-atomic="true">Press Flip to start</p>
+
+      <section class="stats" aria-labelledby="stats-title">
+        <h2 id="stats-title" class="visually-hidden">Statistics</h2>
+        <div class="stat">
+          <span class="label">Heads</span>
+          <span id="headsCount" class="value">0</span>
+        </div>
+        <div class="stat">
+          <span class="label">Tails</span>
+          <span id="tailsCount" class="value">0</span>
+        </div>
+        <div class="stat">
+          <span class="label">Total</span>
+          <span id="totalCount" class="value">0</span>
+        </div>
+      </section>
+
+      <section class="history" aria-labelledby="history-title">
+        <h2 id="history-title">Last 10 flips</h2>
+        <ul id="historyList" class="history-list" aria-live="polite" aria-atomic="false"></ul>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Tip: Press Space or Enter to flip the coin. The app stores your counts and history locally in your browser.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
