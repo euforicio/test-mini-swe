@@ -1,0 +1,152 @@
+/* Basic, responsive, and clean styling for Tic Tac Toe
+   - Centers the board
+   - Highlights winning line
+   - Keeps layout accessible and touch-friendly
+*/
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #60a5fa;
+  --accent-weak: #1f2937;
+  --win: #22c55e;
+  --cell-bg: #0b1220;
+  --cell-border: #334155;
+  --cell-hover: #1e293b;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: radial-gradient(1000px 600px at top left, #0b132b 0%, var(--bg) 60%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+.container {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  align-items: start;
+  justify-items: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+}
+
+.title {
+  margin: 0;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.4rem, 1rem + 1.6vw, 2rem);
+}
+
+.hud {
+  display: grid;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.status {
+  font-weight: 600;
+  font-size: clamp(1rem, 0.9rem + 0.8vw, 1.25rem);
+}
+
+.scoreboard {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(70px, 100px));
+  gap: 8px;
+  background: color-mix(in srgb, var(--panel) 60%, black 40%);
+  padding: 10px;
+  border-radius: 14px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+
+@media (min-width: 420px) {
+  .board {
+    grid-template-columns: repeat(3, minmax(90px, 120px));
+  }
+}
+
+.cell {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--cell-border);
+  background: linear-gradient(180deg, var(--cell-bg), #0a0f1a);
+  color: var(--text);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 1.4rem + 2.4vw, 2.6rem);
+  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.05s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+}
+
+.cell:hover:not(:disabled) {
+  background: var(--cell-hover);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--cell-border));
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.cell:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.cell:disabled {
+  cursor: default;
+  opacity: 0.9;
+}
+
+.cell.win {
+  outline: 2px solid color-mix(in srgb, var(--win) 60%, white 20%);
+  border-color: color-mix(in srgb, var(--win) 50%, var(--cell-border));
+  background: linear-gradient(180deg, color-mix(in srgb, var(--win) 24%, var(--cell-bg)), #0a1510);
+  box-shadow:
+    0 0 0 4px rgba(34, 197, 94, 0.15),
+    0 8px 30px rgba(34, 197, 94, 0.25);
+}
+
+.controls {
+  display: grid;
+  place-items: center;
+}
+
+.new-game {
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #334155;
+  background: linear-gradient(180deg, #0a0f1a, #0c1220);
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 0.05s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.new-game:hover {
+  background: #121a2b;
+  border-color: color-mix(in srgb, var(--accent) 40%, #334155);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+
+.new-game:active {
+  transform: translateY(1px);
+}
+
+.footer {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+  opacity: 0.9;
+}

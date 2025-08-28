@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tic Tac Toe</title>
+    <!--
+      Simple, self-contained Tic Tac Toe
+      - Two-player local play (X and O)
+      - Alternating turns
+      - Prevents moves on occupied cells
+      - Detects wins across rows, columns, and diagonals
+      - Detects draw when board is full with no winner
+      - Highlights winning line and disables further moves
+      - New Game button resets board/state
+      - No dependencies; plain HTML/CSS/JS
+    -->
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <noscript>This page requires JavaScript to play Tic Tac Toe.</noscript>
+
+    <main class="container" aria-labelledby="page-title">
+      <h1 id="page-title" class="title">Tic Tac Toe</h1>
+
+      <section class="hud" aria-live="polite" aria-atomic="true">
+        <div class="status" id="status">Turn: X</div>
+        <div class="scoreboard" id="scoreboard" aria-label="Scoreboard">
+          X Wins: <span id="xWins">0</span> • O Wins: <span id="oWins">0</span> • Draws: <span id="draws">0</span>
+        </div>
+      </section>
+
+      <section class="board" id="board" role="grid" aria-label="Tic Tac Toe board">
+        <!-- 9 cells; using buttons for accessibility and keyboard support -->
+        <button class="cell" role="gridcell" aria-label="Cell 1" data-index="0"></button>
+        <button class="cell" role="gridcell" aria-label="Cell 2" data-index="1"></button>
+        <button class="cell" role="gridcell" aria-label="Cell 3" data-index="2"></button>
+        <button class="cell" role="gridcell" aria-label="Cell 4" data-index="3"></button>
+        <button class="cell" role="gridcell" aria-label="Cell 5" data-index="4"></button>
+        <button class="cell" role="gridcell" aria-label="Cell 6" data-index="5"></button>
+        <button class="cell" role="gridcell" aria-label="Cell 7" data-index="6"></button>
+        <button class="cell" role="gridcell" aria-label="Cell 8" data-index="7"></button>
+        <button class="cell" role="gridcell" aria-label="Cell 9" data-index="8"></button>
+      </section>
+
+      <div class="controls">
+        <button id="newGame" class="new-game" type="button" aria-label="Start a new game">New Game</button>
+      </div>
+
+      <footer class="footer">
+        <small>Built with plain HTML, CSS, and JavaScript.</small>
+      </footer>
+    </main>
+  </body>
+</html>
