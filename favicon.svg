@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Coin">
+  <defs>
+    <radialGradient id="g" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffeaa7"/>
+      <stop offset="60%" stop-color="#f4c430"/>
+      <stop offset="100%" stop-color="#b38800"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="28" fill="url(#g)" stroke="#7a5a00" stroke-width="2"/>
+  <text x="32" y="39" font-size="28" text-anchor="middle" fill="#1d1100" font-family="Segoe UI, Roboto, Arial">¢</text>
+</svg>
