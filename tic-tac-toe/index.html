@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Tic-Tac-Toe</h1>
+    <div id="status" class="status" aria-live="polite">Player X's turn</div>
+
+    <div id="board" class="board" role="grid" aria-label="Tic-Tac-Toe board">
+      <div class="cell" role="button" tabindex="0" data-index="0" aria-label="Cell 1 empty" aria-pressed="false"></div>
+      <div class="cell" role="button" tabindex="0" data-index="1" aria-label="Cell 2 empty" aria-pressed="false"></div>
+      <div class="cell" role="button" tabindex="0" data-index="2" aria-label="Cell 3 empty" aria-pressed="false"></div>
+      <div class="cell" role="button" tabindex="0" data-index="3" aria-label="Cell 4 empty" aria-pressed="false"></div>
+      <div class="cell" role="button" tabindex="0" data-index="4" aria-label="Cell 5 empty" aria-pressed="false"></div>
+      <div class="cell" role="button" tabindex="0" data-index="5" aria-label="Cell 6 empty" aria-pressed="false"></div>
+      <div class="cell" role="button" tabindex="0" data-index="6" aria-label="Cell 7 empty" aria-pressed="false"></div>
+      <div class="cell" role="button" tabindex="0" data-index="7" aria-label="Cell 8 empty" aria-pressed="false"></div>
+      <div class="cell" role="button" tabindex="0" data-index="8" aria-label="Cell 9 empty" aria-pressed="false"></div>
+    </div>
+
+    <button id="resetBtn" class="reset" type="button" aria-label="Reset game">Reset</button>
+  </main>
+  <script defer src="app.js"></script>
+</body>
+</html>
