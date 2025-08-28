@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Coinflip</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="A minimal, accessible coin flip web app. Flip a fair coin, see results, totals, and history.">
+  <meta name="theme-color" content="#0d6efd">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Coinflip</h1>
+
+    <section class="stage" aria-label="Coin flip area">
+      <div id="coin" class="coin" aria-hidden="true">
+        <span id="coinFace" class="coin-face">–</span>
+      </div>
+
+      <div class="controls">
+        <button id="flipBtn" type="button" class="btn primary" aria-label="Flip the coin" title="Flip (Enter or Space)">Flip</button>
+        <button id="resetBtn" type="button" class="btn" aria-label="Reset counts and history" title="Reset">Reset</button>
+      </div>
+
+      <p id="resultText" class="result" aria-live="polite" aria-atomic="true">Press Flip to start</p>
+    </section>
+
+    <section class="totals" aria-label="Running totals">
+      <div class="stat">
+        <span class="label">Heads</span>
+        <span id="headsCount" class="value">0</span>
+      </div>
+      <div class="stat">
+        <span class="label">Tails</span>
+        <span id="tailsCount" class="value">0</span>
+      </div>
+      <div class="stat">
+        <span class="label">Total</span>
+        <span id="totalCount" class="value">0</span>
+      </div>
+    </section>
+
+    <section class="history" aria-label="Last 10 flips">
+      <h2 class="subheading">History (last 10)</h2>
+      <ul id="historyList" class="history-list" aria-live="polite" aria-atomic="false"></ul>
+    </section>
+
+    <footer class="footer">
+      <small>Keyboard: Enter or Space to flip. Reset clears counts and history.</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
