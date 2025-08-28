@@ -1,26 +1,83 @@
-# Test Repository for Mini-SWE Agent
+# Coinflip
 
-This is a test repository for the PRD to PR workflow.
+A simple, accessible, framework-free coin flip website built with static HTML, CSS, and Vanilla JavaScript.
 
-## Coinflip mini app
+## Overview
 
-A tiny, self-contained coin flip website located at `./coinflip`.
+This project provides a fair coin flip using the Web Crypto API when available, with a graceful fallback to `Math.random()` otherwise. It includes a lightweight CSS flip animation, live-updating stats, a timestamped history, and strong accessibility features.
 
-Features:
-- Accessible UI with live region for announcing results
-- Flip and Reset buttons
-- Stats: total flips, heads, tails
-- Uses Web Crypto for randomness with a safe fallback to Math.random
-- Lightweight, responsive styling and visible focus states
+## Features
 
-How to run locally:
-- Option 1 (Python): `cd coinflip && python3 -m http.server 8080` then open http://localhost:8080
-- Option 2 (Node): `npx http-server ./coinflip -p 8080` then open http://localhost:8080
+- Fair coin flip:
+  - Uses `crypto.getRandomValues` when available
+  - Falls back to `Math.random()` otherwise
+- Prominent result display (Heads/Tails) with a simple animated coin
+- CSS-based animation (respects `prefers-reduced-motion`)
+- Stats: total flips, heads count, tails count
+- History: last 10 flips with timestamps
+- Reset button to clear stats/history
+- Accessibility:
+  - Keyboard operable controls
+  - Visible focus styling
+  - `aria-live` region announces result changes for screen readers
+  - Sufficient color contrast
+- Responsive layout for mobile and desktop
+- No external dependencies; pure static site
+- Testable pure function: `flipCoin()` returns "Heads" or "Tails"
 
-Randomness:
-- Primary: `window.crypto.getRandomValues` provides high-quality random bits
-- Fallback: if Web Crypto is unavailable, uses an unbiased Math.random approach (rejection sampling) to derive a fair bit
+## Project Structure
 
-Accessibility notes:
-- The result text uses `role="status"` and `aria-live="polite"` so screen readers announce updates without stealing focus
-- Buttons have clear, visible focus outlines and large click/tap targets
+- `index.html` — Semantic markup for the app
+- `styles.css` — Layout, theme, and animation
+- `app.js` — App logic and DOM interactions (exposes `flipCoin()`)
+- `.gitignore` — Common OS/editor ignores
+- `README.md` — This documentation
+
+## How to Run Locally
+
+Option 1: Open directly
+1. Clone the repository
+2. Open `index.html` in your favorite browser
+
+Option 2: Use a simple static server (recommended for testing)
+- Python 3:
+  ```
+  python -m http.server 8000
+  ```
+  Then visit http://localhost:8000
+
+## How to Deploy
+
+GitHub Pages:
+1. Push the repository to GitHub
+2. In GitHub, go to Settings → Pages
+3. Set the source to “Deploy from a branch”
+4. Select branch (e.g., `main`) and `/ (root)` folder and save
+5. Your site will be available at the provided Pages URL
+
+Any static host will work since the project is pure HTML/CSS/JS.
+
+## Accessibility Notes
+
+- Buttons are native `<button>` elements for keyboard operability (Enter/Space)
+- Focus-visible styling helps keyboard users
+- Results are announced via an `aria-live="polite"` region
+- Colors chosen for good contrast
+- Animation respects `prefers-reduced-motion`
+
+## Randomness Approach
+
+- Primary: `window.crypto.getRandomValues` to get uniform random bits
+- Fallback: `Math.random()` if crypto is not available
+- The pure function:
+  ```js
+  // returns "Heads" or "Tails"
+  flipCoin()
+  ```
+
+## Development Notes
+
+- No build step; edit the files directly
+- Keep bundle size minimal, no dependencies
+- All logic is in `app.js`
+- Files kept intentionally short for maintainability

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Coinflip</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" role="banner">
+    <h1>Coinflip</h1>
+    <p class="tagline">A tiny, accessible, framework-free coin flipper</p>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <section aria-labelledby="result-heading" class="card">
+      <h2 id="result-heading">Result</h2>
+      <div class="result-wrap">
+        <div id="coin" class="coin" aria-hidden="true" title="Coin"></div>
+        <div class="result-text">
+          <div id="resultWord" class="result-word" aria-hidden="true">—</div>
+          <div id="resultAnnounce" class="sr-only" aria-live="polite" aria-atomic="true">No flips yet</div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="flipBtn" class="btn primary" type="button" aria-describedby="flipHelp">Flip</button>
+        <button id="resetBtn" class="btn" type="button">Reset</button>
+      </div>
+      <p id="flipHelp" class="help-text">Press Enter or Space on the Flip button to flip the coin.</p>
+    </section>
+
+    <section aria-labelledby="stats-heading" class="card">
+      <h2 id="stats-heading">Stats</h2>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">Total</div>
+          <div id="totalCount" class="stat-value">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Heads</div>
+          <div id="headsCount" class="stat-value">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Tails</div>
+          <div id="tailsCount" class="stat-value">0</div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="history-heading" class="card">
+      <h2 id="history-heading">History (last 10)</h2>
+      <ul id="historyList" class="history" aria-live="polite" aria-atomic="false">
+        <li class="muted">No history yet</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>Built with HTML, CSS, and Vanilla JS. No dependencies.</p>
+  </footer>
+
+  <noscript>
+    <div class="noscript">This app requires JavaScript to flip a coin.</div>
+  </noscript>
+  <script src="./app.js" defer></script>
+</body>
+</html>

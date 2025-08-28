@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Node (not used, but common)
+node_modules/
+
+# Build/coverage (not used here, but common)
+dist/
+coverage/
+
+# Env
+.env
