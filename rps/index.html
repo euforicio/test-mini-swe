@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rock–Paper–Scissors</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='80'%3E%F0%9F%91%8A%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Rock–Paper–Scissors</h1>
+      <p class="tagline" id="desc">Play a quick round against the computer.</p>
+    </header>
+
+    <section aria-labelledby="score-title" class="scoreboard">
+      <h2 id="score-title">Score</h2>
+      <div class="scores" role="status" aria-live="polite" aria-atomic="true">
+        <div>Player: <span id="player-score">0</span></div>
+        <div>Computer: <span id="computer-score">0</span></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="status-title" class="status">
+      <h2 id="status-title" class="visually-hidden">Round result</h2>
+      <p id="result-text">Make your move!</p>
+    </section>
+
+    <section class="controls">
+      <h2 class="visually-hidden">Controls</h2>
+      <div role="group" aria-label="Choose Rock, Paper, or Scissors">
+        <button type="button" data-choice="rock" aria-label="Rock">✊ Rock</button>
+        <button type="button" data-choice="paper" aria-label="Paper">✋ Paper</button>
+        <button type="button" data-choice="scissors" aria-label="Scissors">✌️ Scissors</button>
+      </div>
+      <div class="actions">
+        <button type="button" id="reset" aria-label="Reset score">Reset Score</button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
