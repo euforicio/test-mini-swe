@@ -1,0 +1,106 @@
+/* Basic, responsive, high-contrast styling with visible focus states */
+:root{
+  --bg:#0b132b;
+  --panel:#1c2541;
+  --accent:#2d6cdf;
+  --accent-2:#5b8def;
+  --text:#f4f7fb;
+  --muted:#cbd5e1;
+  --danger:#e11d48;
+  --radius:12px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji",sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg, #0b132b 0%, #071023 100%);
+  line-height:1.5;
+}
+
+.container{
+  max-width:760px;
+  margin:0 auto;
+  padding:1rem;
+}
+
+h1{margin:1rem 0 0.25rem}
+.tagline{margin:0 0 1rem;color:var(--muted)}
+
+.panel{
+  background:var(--panel);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius);
+  padding:1rem;
+  margin:1rem 0;
+  box-shadow:0 2px 16px rgba(0,0,0,0.25);
+}
+
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.75rem;
+}
+
+.btn{
+  appearance:none;
+  border:none;
+  cursor:pointer;
+  background:var(--accent);
+  color:var(--text);
+  padding:0.75rem 1rem;
+  border-radius:10px;
+  font-weight:600;
+  font-size:1rem;
+  min-width:9rem;
+  text-align:center;
+  transition:transform .06s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow:0 1px 6px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.btn:hover{background:var(--accent-2); transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn.secondary{
+  background:transparent;
+  border:1.5px solid var(--muted);
+  color:var(--text);
+  min-width:auto;
+}
+
+.status{
+  font-size:1.05rem;
+  background:rgba(0,0,0,0.25);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px;
+  padding:0.75rem;
+  margin:.5rem 0 0;
+}
+
+.scoreboard{
+  margin-top:.5rem;
+  padding-top:.5rem;
+  border-top:1px dashed rgba(255,255,255,0.15);
+}
+
+.smallprint{color:var(--muted); font-size:.9rem}
+
+/* Improve focus visibility and accessibility */
+:focus{outline:none}
+:focus-visible{
+  outline:3px solid #ffd166;
+  outline-offset:3px;
+  border-radius:10px;
+}
+
+/* Screen-reader-only utility */
+.sr-only{
+  position:absolute !important;
+  height:1px;width:1px;
+  overflow:hidden;clip:rect(1px,1px,1px,1px);
+  white-space:nowrap;border:0;padding:0;margin:-1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
