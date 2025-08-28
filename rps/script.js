@@ -1,166 +1,144 @@
-/**
- * Rock–Paper–Scissors
- * - Dependency-free, accessible, first to 5 wins
- * - Keyboard shortcuts: R (rock), P (paper), S (scissors)
- * - Buttons disabled after game over until Reset
- *
- * Exposed smoke-test helpers (in browser console):
- *   window.__rpsDetermineWinner('rock','scissors') // 'win'
- *   window.__rpsSmokeTest() // quick demonstration
- */
 (() => {
   'use strict';
 
-  /** @type {'rock'|'paper'|'scissors'} */
-  const choices = ['rock', 'paper', 'scissors'];
+  const MAX_WINS = 5;
+  const CHOICES = ['rock', 'paper', 'scissors'];
+  const LABELS = { rock: 'Rock', paper: 'Paper', scissors: 'Scissors' };
 
-  // Cache DOM elements
-  const btns = /** @type {NodeListOf<HTMLButtonElement>} */ (document.querySelectorAll('.btn.choice'));
-  const resetBtn = /** @type {HTMLButtonElement} */ (document.getElementById('resetBtn'));
-  const selectionsEl = document.getElementById('selections');
-  const resultEl = document.getElementById('result');
-  const scoreboardEl = document.getElementById('scoreboard');
+  // DOM references
+  const btnRock = document.getElementById('rock');
+  const btnPaper = document.getElementById('paper');
+  const btnScissors = document.getElementById('scissors');
+  const btnReset = document.getElementById('reset');
+
+  const elPlayerChoice = document.getElementById('player-choice');
+  const elComputerChoice = document.getElementById('computer-choice');
+  const elResult = document.getElementById('result');
+  const elPlayerScore = document.getElementById('player-score');
+  const elComputerScore = document.getElementById('computer-score');
+  const elWinner = document.getElementById('winner');
 
   let playerScore = 0;
   let computerScore = 0;
   let gameOver = false;
 
-  function capitalize(s) {
-    return s.charAt(0).toUpperCase() + s.slice(1);
-  }
-
   function getComputerChoice() {
-    const idx = Math.floor(Math.random() * choices.length);
-    return choices[idx];
+    const idx = Math.floor(Math.random() * CHOICES.length);
+    return CHOICES[idx];
   }
 
-  /**
-   * Determine round outcome from player's and computer's moves.
-   * @param {'rock'|'paper'|'scissors'} player
-   * @param {'rock'|'paper'|'scissors'} computer
-   * @returns {'win'|'lose'|'draw'}
-   */
-  function determineWinner(player, computer) {
+  // Determine round outcome: 'win' | 'lose' | 'draw'
+  function computeOutcome(player, computer) {
     if (player === computer) return 'draw';
-    const beats = {
-      rock: 'scissors',
-      paper: 'rock',
-      scissors: 'paper',
-    };
-    return beats[player] === computer ? 'win' : 'lose';
+    if (
+      (player === 'rock' && computer === 'scissors') ||
+      (player === 'paper' && computer === 'rock') ||
+      (player === 'scissors' && computer === 'paper')
+    ) return 'win';
+    return 'lose';
   }
 
-  function setButtonsDisabled(disabled) {
-    btns.forEach(b => {
+  function setChoiceDisabled(disabled) {
+    [btnRock, btnPaper, btnScissors].forEach(b => {
       b.disabled = disabled;
       b.setAttribute('aria-disabled', String(disabled));
     });
   }
 
-  function updateScoreboard() {
-    scoreboardEl.textContent = `Player ${playerScore} — ${computerScore} Computer`;
-  }
-
-  function updateSelections(player, computer) {
-    selectionsEl.textContent = `You: ${player ? capitalize(player) : '—'} | Computer: ${computer ? capitalize(computer) : '—'}`;
+  function updateScores() {
+    elPlayerScore.textContent = String(playerScore);
+    elComputerScore.textContent = String(computerScore);
   }
 
   function announceResult(outcome, player, computer) {
-    resultEl.classList.remove('win', 'lose', 'draw');
-    if (!outcome) {
-      resultEl.textContent = 'Make your move!';
-      return;
+    let text = '';
+    switch (outcome) {
+      case 'win':
+        text = `${LABELS[player]} beats ${LABELS[computer]}. You win this round!`;
+        break;
+      case 'lose':
+        text = `${LABELS[computer]} beats ${LABELS[player]}. You lose this round.`;
+        break;
+      default:
+        text = `Both chose ${LABELS[player]}. It's a draw.`;
+        break;
     }
-    resultEl.classList.add(outcome);
-    const detail = `${capitalize(player)} vs ${capitalize(computer)}.`;
-    if (outcome === 'win') {
-      resultEl.textContent = `You win the round! ${detail}`;
-    } else if (outcome === 'lose') {
-      resultEl.textContent = `You lose the round. ${detail}`;
-    } else {
-      resultEl.textContent = `It’s a draw. ${detail}`;
-    }
+    elResult.textContent = text;
   }
 
-  function checkGameOver() {
-    if (playerScore >= 5 || computerScore >= 5) {
+  function checkForGameOver() {
+    if (playerScore >= MAX_WINS || computerScore >= MAX_WINS) {
       gameOver = true;
-      setButtonsDisabled(true);
-      const winner = playerScore > computerScore ? 'You win the game! 🏆' : 'Computer wins the game. 🤖';
-      // Keep previous class to show final outcome color aligned with last round (optional),
-      // or override to a neutral emphasis. We'll append a note:
-      resultEl.textContent = `${winner} Press Reset to play again.`;
+      setChoiceDisabled(true);
+      const youWin = playerScore > computerScore;
+      elWinner.textContent = youWin ? 'You won the game! 🎉' : 'Computer won the game. Try again!';
+      // Move focus to Reset for accessibility
+      btnReset.focus();
     }
   }
 
-  function handleChoice(choice) {
+  function playRound(choice) {
     if (gameOver) return;
 
     const player = choice;
     const computer = getComputerChoice();
-    const outcome = determineWinner(player, computer);
 
+    elPlayerChoice.textContent = LABELS[player];
+    elComputerChoice.textContent = LABELS[computer];
+
+    const outcome = computeOutcome(player, computer);
     if (outcome === 'win') playerScore += 1;
     else if (outcome === 'lose') computerScore += 1;
 
-    updateSelections(player, computer);
+    updateScores();
     announceResult(outcome, player, computer);
-    updateScoreboard();
-    checkGameOver();
+    checkForGameOver();
   }
 
   function resetGame() {
     playerScore = 0;
     computerScore = 0;
     gameOver = false;
-    updateSelections(null, null);
-    resultEl.classList.remove('win', 'lose', 'draw');
-    announceResult(null);
-    updateScoreboard();
-    setButtonsDisabled(false);
-    // Focus first button for convenience
-    const first = /** @type {HTMLButtonElement} */ (document.querySelector('.btn.choice'));
-    if (first) first.focus();
+
+    elPlayerChoice.textContent = '—';
+    elComputerChoice.textContent = '—';
+    elResult.textContent = 'Make your move!';
+    elWinner.textContent = '';
+
+    updateScores();
+    setChoiceDisabled(false);
+    btnRock.focus();
   }
 
   // Event listeners for buttons
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const choice = btn.getAttribute('data-choice');
-      if (choice) handleChoice(choice);
-    });
-  });
+  btnRock.addEventListener('click', () => playRound('rock'));
+  btnPaper.addEventListener('click', () => playRound('paper'));
+  btnScissors.addEventListener('click', () => playRound('scissors'));
+  btnReset.addEventListener('click', resetGame);
 
   // Keyboard shortcuts: R, P, S (case-insensitive)
   document.addEventListener('keydown', (e) => {
+    // Avoid typing in form fields
+    if (e.target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
     if (gameOver) return;
-    const key = e.key.toLowerCase();
-    if (key === 'r') handleChoice('rock');
-    else if (key === 'p') handleChoice('paper');
-    else if (key === 's') handleChoice('scissors');
+
+    const key = (e.key || '').toLowerCase();
+    if (key === 'r') playRound('rock');
+    else if (key === 'p') playRound('paper');
+    else if (key === 's') playRound('scissors');
   });
 
-  // Reset button
-  resetBtn.addEventListener('click', resetGame);
+  // Initialize UI state
+  setChoiceDisabled(false);
+  updateScores();
 
-  // Initialize UI
-  resetGame();
-
-  // Expose light smoke tests to the console (optional requirement)
-  window.__rpsDetermineWinner = determineWinner;
-  window.__rpsSmokeTest = function __rpsSmokeTest() {
-    const samples = [
-      ['rock','scissors','win'],
-      ['rock','paper','lose'],
-      ['paper','rock','win'],
-      ['paper','scissors','lose'],
-      ['scissors','paper','win'],
-      ['scissors','rock','lose'],
-      ['rock','rock','draw'],
-    ];
-    const ok = samples.every(([p,c,exp]) => determineWinner(p,c) === exp);
-    const msg = ok ? 'Smoke test passed ✅' : 'Smoke test failed ❌';
-    console.log(msg);
-    return { ok, samples };
+  // Expose tiny smoke-test helpers on window for quick console checks
+  // Example: __rpsTest__.computeOutcome('rock','scissors') -> 'win'
+  // Example: __rpsTest__.reset(); __rpsTest__.playRound('rock');
+  window.__rpsTest__ = {
+    computeOutcome,
+    getComputerChoice,
+    playRound,
+    reset: resetGame,
   };
 })();
