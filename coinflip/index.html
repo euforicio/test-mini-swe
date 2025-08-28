@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coin Flip</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Coin Flip</h1>
+    <div id="result" class="result" role="status" aria-live="polite">Ready to flip.</div>
+    <div class="controls">
+      <button id="flipBtn" type="button" class="btn">Flip</button>
+      <button id="resetBtn" type="button" class="btn btn-secondary">Reset Stats</button>
+    </div>
+    <section class="stats" aria-label="Statistics">
+      <div class="stat"><span class="label">Total:</span> <span id="totalCount">0</span></div>
+      <div class="stat"><span class="label">Heads:</span> <span id="headsCount">0</span></div>
+      <div class="stat"><span class="label">Tails:</span> <span id="tailsCount">0</span></div>
+    </section>
+    <p class="note">Randomness uses Web Crypto when available, with a safe fallback.</p>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>

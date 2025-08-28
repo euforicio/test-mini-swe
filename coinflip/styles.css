@@ -1,0 +1,89 @@
+:root{
+  --bg:#f9fafb;
+  --fg:#111827;
+  --muted:#6b7280;
+  --primary:#2563eb;
+  --primary-contrast:#ffffff;
+  --border:#e5e7eb;
+  --surface:#ffffff;
+  --focus:#f59e0b;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans','Helvetica Neue',Arial,'Apple Color Emoji','Segoe UI Emoji';
+  background:var(--bg);
+  color:var(--fg);
+  line-height:1.5;
+}
+.container{
+  max-width:720px;
+  margin:0 auto;
+  padding:2rem 1rem 4rem;
+}
+h1{
+  margin:0 0 1rem;
+  font-size:clamp(1.5rem,3.5vw,2.25rem);
+}
+.result{
+  margin:1rem 0 1.5rem;
+  padding:1.25rem;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  font-size:1.25rem;
+  min-height:3rem;
+  display:flex;
+  align-items:center;
+}
+.controls{
+  display:flex;
+  gap:.75rem;
+  flex-wrap:wrap;
+  margin-bottom:1rem;
+}
+.btn{
+  appearance:none;
+  border:1px solid var(--primary);
+  background:var(--primary);
+  color:var(--primary-contrast);
+  padding:.65rem 1.1rem;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 1px 1px rgb(0 0 0 / 5%);
+  transition:transform .02s ease-in-out, box-shadow .15s ease, background-color .15s ease;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn:focus-visible{
+  outline:3px solid var(--focus);
+  outline-offset:2px;
+}
+.btn.btn-secondary{
+  background:transparent;
+  color:var(--primary);
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.5rem;
+  margin-top:.5rem;
+}
+.stat{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:.75rem 1rem;
+  text-align:center;
+}
+.label{color:var(--muted); margin-right:.25rem}
+.note{
+  color:var(--muted);
+  margin-top:1rem;
+  font-size:.95rem;
+}
+@media (max-width:480px){
+  .stats{grid-template-columns:1fr}
+}
