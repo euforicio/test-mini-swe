@@ -1,0 +1,171 @@
+:root {
+  --bg: #0f1220;
+  --text: #ffffff;
+  --muted: #cbd5e1;
+  --accent: #4f46e5;
+  --accent-contrast: #ffffff;
+  --coin-edge: #b0892f;
+  --coin-front: #f5d76e;
+  --coin-back: #e6c55a;
+  --shadow: rgba(0,0,0,0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 600px at 50% -10%, #20264a 0%, var(--bg) 60%);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+h1 {
+  margin: 0 0 1rem 0;
+  font-size: 2.25rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.ui {
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+.coin-container {
+  display: grid;
+  place-items: center;
+  margin: 1rem 0 1.25rem 0;
+  perspective: 1000px; /* enables 3D depth */
+}
+
+.coin {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  transform-style: preserve-3d;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 4px var(--coin-edge),
+    0 18px 32px -10px var(--shadow);
+  will-change: transform;
+  transition: transform 700ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 1;
+  color: #3b2f0f;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.25);
+  backface-visibility: hidden;
+  user-select: none;
+}
+
+.face-front {
+  background: radial-gradient(circle at 30% 30%, #fff2a1 0%, var(--coin-front) 45%, #d3b34f 100%);
+  transform: rotateY(0deg) translateZ(1px);
+}
+
+.face-back {
+  background: radial-gradient(circle at 70% 70%, #f3e294 0%, var(--coin-back) 45%, #c8a845 100%);
+  transform: rotateY(180deg) translateZ(1px);
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto 1rem auto;
+  padding: 0.85rem 1.25rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  display: block;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px -10px rgba(79,70,229,0.7);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px -10px rgba(79,70,229,0.85);
+}
+
+.btn:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.btn[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: #615ae9;
+}
+
+.results {
+  min-height: 1.5rem;
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.counters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+  color: var(--text);
+}
+
+.counters strong {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 420px) {
+  .coin {
+    width: 136px;
+    height: 136px;
+  }
+  .face {
+    font-size: 60px;
+  }
+  .btn {
+    max-width: 100%;
+  }
+}

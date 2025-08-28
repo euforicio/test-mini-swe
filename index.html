@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coin Flip</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Coin Flip</h1>
+
+    <section class="ui">
+      <div class="coin-container" aria-hidden="true">
+        <div id="coin" class="coin" role="img" aria-label="A flipping coin" aria-hidden="true">
+          <div class="face face-front" aria-hidden="true">H</div>
+          <div class="face face-back" aria-hidden="true">T</div>
+        </div>
+      </div>
+
+      <button id="flipBtn" class="btn" aria-label="Flip the coin">Flip</button>
+
+      <div id="results" class="results" aria-live="polite" aria-atomic="true">
+        Press Flip to start.
+      </div>
+
+      <div class="counters" role="status" aria-live="polite">
+        <div>Heads: <strong id="headsCount">0</strong></div>
+        <div>Tails: <strong id="tailsCount">0</strong></div>
+        <div>Total: <strong id="totalCount">0</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
