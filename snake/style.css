@@ -1,0 +1,79 @@
+:root{
+  --bg1: #0f2027;
+  --bg2: #203a43;
+  --bg3: #2c5364;
+  --snake: #4caf50;
+  --snake-head: #2e7d32;
+  --food: #e53935;
+  --grid: rgba(255,255,255,0.05);
+  --panel: rgba(0,0,0,0.45);
+  --panel-text: #f1f5f9;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  background: linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color:#e5e7eb;
+}
+.center{
+  min-height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+#game-wrapper{
+  position:relative;
+  display:inline-block;
+}
+#game{
+  display:block;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+#score{
+  position:absolute;
+  top:8px; left:8px;
+  background: var(--panel);
+  color: var(--panel-text);
+  padding: 6px 10px;
+  font-weight:600;
+  border-radius: 6px;
+  backdrop-filter: blur(3px);
+}
+#instructions{
+  position:absolute;
+  top:8px; right:8px;
+  background: var(--panel);
+  color: var(--panel-text);
+  padding: 6px 10px;
+  border-radius:6px;
+  font-size: 12px;
+  max-width: 60ch;
+  text-align:right;
+  backdrop-filter: blur(3px);
+}
+#overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:24px;
+  color:#fff;
+  background: rgba(0,0,0,0.55);
+  border-radius: 8px;
+}
+#overlay.hidden{ display:none; }
+#overlay .panel{
+  background: rgba(15,23,42,0.7);
+  padding: 18px 22px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+#overlay h2{ margin:0 0 6px; font-size:22px }
+#overlay p{ margin:6px 0 0; opacity:0.9 }
