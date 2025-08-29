@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Snake</h1>
+    <div class="hud">
+      <div class="score">Score: <span id="score">0</span></div>
+      <button id="restart" aria-label="Restart the game">Restart</button>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="game" width="400" height="400" aria-label="Snake game area" role="img"></canvas>
+    </div>
+    <p class="hint">
+      Controls: Arrow keys or WASD. Avoid walls and yourself. Press Restart to play again.
+    </p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
