@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snake - Simple Canvas Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrapper">
+    <section class="panel">
+      <h1>Snake</h1>
+      <p class="controls">
+        Controls: Arrow Keys or WASD to move. Avoid walls and yourself. Eat food to grow.
+      </p>
+      <div class="hud">
+        <div class="score">Score: <span id="score">0</span></div>
+        <button id="restart" type="button" aria-label="Restart game">Restart</button>
+      </div>
+      <canvas id="game" width="400" height="400" aria-label="Snake game area"></canvas>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+      <p class="hint">Tip: Press Enter to restart after game over.</p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+:root {
+  --bg: #f7f7fb;
+  --panel: #ffffff;
+  --text: #222;
+  --muted: #666;
+  --accent: #2e7d32;
+  --danger: #c62828;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(ellipse at top, #f0f3ff, #f7f7fb);
+}
+
+.wrapper {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  padding: 20px 20px 16px 20px;
+  width: min(92vw, 520px);
+}
+
+h1 {
+  margin: 4px 0 8px 0;
+  font-size: 28px;
+}
+
+.controls {
+  margin: 0 0 12px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.score {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#restart {
+  appearance: none;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #fff;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.05s ease, box-shadow 0.1s ease, background 0.2s ease;
+}
+#restart:hover { transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+#restart:active { transform: translateY(0); box-shadow: none; }
+#restart:focus { outline: 3px solid #bcd2ff; outline-offset: 2px; }
+
+#game {
+  display: block;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background:
+    linear-gradient(0deg, rgba(0,0,0,0.04) 1px, transparent 1px) 0 0 / 20px 20px,
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px) 0 0 / 20px 20px,
+    #fff;
+}
+
+.message {
+  min-height: 1.2em;
+  text-align: center;
+  color: var(--danger);
+  font-weight: 600;
+  margin: 10px 0 0 0;
+}
+
+.hint {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin: 8px 0 0 0;
+}
+
+/* Responsive enough for typical laptop screens */
+@media (max-width: 460px) {
+  #game { width: 92vw; height: 92vw; }
+}
