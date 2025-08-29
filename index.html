@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: sans-serif; margin: 2rem; color: #222; }
+    .calc { max-width: 420px; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; }
+    .row { display: flex; gap: 0.5rem; margin: 0.5rem 0; }
+    input { flex: 1; padding: 0.5rem; font-size: 1rem; }
+    .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-top: 0.5rem; }
+    button { padding: 0.5rem; font-size: 1rem; cursor: pointer; }
+    #result { margin-top: 0.75rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Simple Calculator</h1>
+  <div class="calc">
+    <div class="row">
+      <input id="a" type="number" step="any" placeholder="First number" />
+      <input id="b" type="number" step="any" placeholder="Second number" />
+    </div>
+    <div class="buttons">
+      <button data-op="add">Add</button>
+      <button data-op="subtract">Subtract</button>
+      <button data-op="multiply">Multiply</button>
+      <button data-op="divide">Divide</button>
+    </div>
+    <div id="result">Result will appear here</div>
+  </div>
+
+  <script src="calculator.js"></script>
+  <script>
+    (function () {
+      const a = document.getElementById('a');
+      const b = document.getElementById('b');
+      const result = document.getElementById('result');
+
+      function showResult(value) { result.textContent = 'Result: ' + value; result.style.color = '#0a0'; }
+      function showError(msg) { result.textContent = 'Error: ' + msg; result.style.color = '#a00'; }
+      function getVal(v) { return v === '' ? NaN : parseFloat(v); }
+
+      document.querySelectorAll('button[data-op]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          try {
+            const x = getVal(a.value);
+            const y = getVal(b.value);
+            if (Number.isNaN(x) || Number.isNaN(y)) throw new Error('Please enter valid numbers');
+            let out;
+            switch (btn.dataset.op) {
+              case 'add': out = Calculator.add(x, y); break;
+              case 'subtract': out = Calculator.subtract(x, y); break;
+              case 'multiply': out = Calculator.multiply(x, y); break;
+              case 'divide': out = Calculator.divide(x, y); break;
+              default: throw new Error('Unknown operation');
+            }
+            showResult(out);
+          } catch (e) {
+            showError(e.message || String(e));
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
