@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Paws & Pamper</title>
+  <meta name="description" content="Get in touch with Paws & Pamper. Request a grooming appointment or ask about services, pricing, and availability." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Paws & Pamper Home">
+        <span class="brand-mark" aria-hidden="true">🐾</span>
+        <span class="brand-text">Paws &amp; Pamper</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <ul id="primary-nav" class="nav-list">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link active btn btn-primary" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container grid two">
+      <section>
+        <header class="section-header">
+          <h1>Contact Us</h1>
+          <p>We’ll get back to you as soon as possible during business hours.</p>
+        </header>
+
+        <form id="appointment" class="card form" method="POST" action="https://example.com/form">
+          <fieldset class="grid two">
+            <div class="form-control">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+            </div>
+            <div class="form-control">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-control">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" />
+            </div>
+            <div class="form-control">
+              <label for="pet-name">Pet name</label>
+              <input id="pet-name" name="pet_name" type="text" placeholder="Buddy" />
+            </div>
+            <div class="form-control">
+              <label for="service">Service</label>
+              <select id="service" name="service">
+                <option>Basic Groom</option>
+                <option>Full Spa Groom</option>
+                <option>Nail & Paw Care</option>
+                <option>Other / Not sure</option>
+              </select>
+            </div>
+            <div class="form-control">
+              <label for="date">Preferred date</label>
+              <input id="date" name="preferred_date" type="date" />
+            </div>
+          </fieldset>
+          <div class="form-control">
+            <label for="message">Additional details</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about your pup, coat type, special needs…"></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Request Appointment</button>
+            <p class="muted small">Submitting this form sends a request only. We’ll confirm availability by email or phone.</p>
+          </div>
+          <noscript><p class="small">Note: JavaScript is disabled. Form still works, but feedback may be limited.</p></noscript>
+        </form>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h2>Visit Us</h2>
+          <ul class="contact-list">
+            <li><strong>Phone:</strong> <a href="tel:+15551234567">(555) 123‑4567</a></li>
+            <li><strong>Email:</strong> <a href="mailto:hello@pawsandpamper.com">hello@pawsandpamper.com</a></li>
+            <li><strong>Address:</strong> 123 Pup Lane, Petville, PA 12345</li>
+            <li><strong>Hours:</strong> Tue–Sat 9:00am–6:00pm</li>
+          </ul>
+          <div class="map-embed">
+            <iframe title="Paws & Pamper Location"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=New%20York%20City&t=&z=13&ie=UTF8&iwloc=&output=embed">
+            </iframe>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="brand-inline"><span class="brand-mark">🐾</span><strong>Paws &amp; Pamper</strong></div>
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="small muted">Questions? We’re here to help.</div>
+    </div>
+  </footer>
+</body>
+</html>
