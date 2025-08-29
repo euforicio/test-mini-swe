@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rock–Paper–Scissors</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="A simple, accessible Rock–Paper–Scissors game against the computer. Pure static site." />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Rock–Paper–Scissors</h1>
+      <p class="tagline">Play against the computer. Score persists during your browser session.</p>
+    </header>
+
+    <section class="choices" aria-labelledby="choices-heading">
+      <h2 id="choices-heading">Choose your move</h2>
+      <p class="helper">Use the buttons below, or tab to them and press Enter/Space.</p>
+      <div class="buttons" role="group" aria-label="Choose your move">
+        <button class="choice-btn" data-choice="rock" aria-label="Rock">
+          <span class="emoji" aria-hidden="true">✊</span>
+          <span class="label">Rock</span>
+        </button>
+        <button class="choice-btn" data-choice="paper" aria-label="Paper">
+          <span class="emoji" aria-hidden="true">✋</span>
+          <span class="label">Paper</span>
+        </button>
+        <button class="choice-btn" data-choice="scissors" aria-label="Scissors">
+          <span class="emoji" aria-hidden="true">✌️</span>
+          <span class="label">Scissors</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="result-wrap" aria-labelledby="result-heading">
+      <h2 id="result-heading">Result</h2>
+      <div id="result" class="result" role="status" aria-live="polite">
+        Make your move to start the game.
+      </div>
+    </section>
+
+    <section class="scoreboard" aria-labelledby="score-heading">
+      <h2 id="score-heading">Scoreboard</h2>
+      <div class="scores">
+        <div class="score">
+          <span class="score-label">Player</span>
+          <span id="player-score" class="score-value" aria-label="Player score">0</span>
+        </div>
+        <div class="score">
+          <span class="score-label">Computer</span>
+          <span id="computer-score" class="score-value" aria-label="Computer score">0</span>
+        </div>
+        <div class="score">
+          <span class="score-label">Ties</span>
+          <span id="ties-score" class="score-value" aria-label="Tie count">0</span>
+        </div>
+      </div>
+      <button id="reset-btn" class="reset-btn" aria-label="Reset scoreboard">Reset</button>
+    </section>
+
+    <footer class="footer">
+      <small>No data is sent anywhere; everything runs locally in your browser.</small>
+    </footer>
+  </main>
+  <script src="script.js" defer></script>
+</body>
+</html>
