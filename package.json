@@ -1,0 +1,9 @@
+{
+  "name": "math-utils-lib",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simple utility library with basic math operations and tests",
+  "scripts": {
+    "test": "node math-utils.test.js"
+  }
+}
