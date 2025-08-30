@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo App</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="header">
+    <h1>Todo App</h1>
+  </header>
+  <main class="container">
+    <section class="new-todo">
+      <h2>Add a new Todo</h2>
+      <form id="todo-form">
+        <div class="field-row">
+          <input type="text" id="title" placeholder="What needs to be done?" required maxlength="255"/>
+        </div>
+        <div class="field-row">
+          <textarea id="description" placeholder="Optional description (max 2000 chars)" maxlength="2000"></textarea>
+        </div>
+        <button type="submit" class="btn primary">Add Todo</button>
+      </form>
+    </section>
+
+    <section class="controls">
+      <div class="filters">
+        <button class="btn filter active" data-filter="all">All</button>
+        <button class="btn filter" data-filter="active">Active</button>
+        <button class="btn filter" data-filter="completed">Completed</button>
+      </div>
+    </section>
+
+    <section>
+      <ul id="todo-list" class="todo-list"></ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>Built with Express + SQLite</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

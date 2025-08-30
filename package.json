@@ -1,0 +1,27 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "Full-stack Todo application with Node.js/Express, SQLite, and a modern frontend.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js",
+    "test": "jest --runInBand"
+  },
+  "keywords": [
+    "todo",
+    "express",
+    "sqlite",
+    "fullstack"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
