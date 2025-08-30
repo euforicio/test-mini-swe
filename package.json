@@ -1,0 +1,8 @@
+{
+  "name": "mini-swe-agent-test-repo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node tests/console-log.test.js"
+  }
+}
