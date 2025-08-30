@@ -1,6 +1,7 @@
 import http, { IncomingMessage, ServerResponse } from "http";
 import url from "url";
 import querystring from "querystring";
+import fs from "fs";
 import { readJSON, writeJSON, appendFile } from "./lib/store.js";
 import { validateEmail, validatePasswordStrength, hashPassword, verifyPassword, newId, nowISO, addDays, addHours, isExpired, signCookie, verifySignedCookie } from "./lib/security.js";
 import { User, Session, PasswordResetToken, Flash } from "./types.js";
@@ -102,7 +103,6 @@ function page(title: string, user: User | null, content: string, message?: Flash
 }
 
 function readFile(p: string) {
-  const fs = awaitImport("fs") as typeof import("fs");
   return fs.readFileSync(p, "utf8");
 }
 
