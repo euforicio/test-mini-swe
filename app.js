@@ -8,18 +8,18 @@ function getRandomInt1to10() {
 
 /** Updates the UI with a new random integer. */
 function updateNumber() {
-  const out = document.getElementById(result);
+  const out = document.getElementById('result');
   if (!out) return;
   const n = getRandomInt1to10();
   out.textContent = String(n);
 }
 
 // Initialize on first load and wire up events.
-window.addEventListener(DOMContentLoaded, () => {
+window.addEventListener('DOMContentLoaded', () => {
   updateNumber();
-  const btn = document.getElementById(generateBtn);
+  const btn = document.getElementById('generateBtn');
   if (btn) {
-    btn.addEventListener(click, updateNumber);
+    btn.addEventListener('click', updateNumber);
     // Button natively supports Enter/Space activation.
   }
 });

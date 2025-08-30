@@ -45,7 +45,7 @@ button {
   border-radius: 0.5rem;
   background: var(--btn-bg);
   color: var(--btn-fg);
-  cursor: pointer.
+  cursor: pointer;
 }
 button:hover { background: var(--btn-bg-hover); }
 button:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
