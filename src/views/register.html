@@ -1,0 +1,19 @@
+<h1 class="text-xl font-semibold mb-4">Create an account</h1>
+{{messages}}
+<form class="space-y-4" method="POST" action="/register">
+  <div>
+    <label class="block text-sm mb-1">Name</label>
+    <input name="name" type="text" class="w-full border rounded px-3 py-2" required/>
+  </div>
+  <div>
+    <label class="block text-sm mb-1">Email</label>
+    <input name="email" type="email" class="w-full border rounded px-3 py-2" required/>
+  </div>
+  <div>
+    <label class="block text-sm mb-1">Password</label>
+    <input name="password" type="password" class="w-full border rounded px-3 py-2" required/>
+    <p class="text-xs text-gray-500 mt-1">Min 8 chars with upper, lower, number, and special character.</p>
+  </div>
+  <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Register</button>
+</form>
+<p class="text-sm mt-4">Already have an account? <a class="text-blue-700 hover:underline" href="/login">Login</a></p>
