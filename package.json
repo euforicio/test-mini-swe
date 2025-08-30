@@ -1,0 +1,17 @@
+{
+  "name": "auth-system",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Minimal TypeScript HTTP auth system without external deps",
+  "scripts": {
+    "dev": "ts-node src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "test": "node --test dist/tests"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
